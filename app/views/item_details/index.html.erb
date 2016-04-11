@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Item Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+      <th>Other imgs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_details.each do |item_detail| %>
+      <tr>
+        <td><%= item_detail.item %></td>
+        <td><%= item_detail.description %></td>
+        <td><%= item_detail.other_imgs %></td>
+        <td><%= link_to 'Show', item_detail %></td>
+        <td><%= link_to 'Edit', edit_item_detail_path(item_detail) %></td>
+        <td><%= link_to 'Destroy', item_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item detail', new_item_detail_path %>
