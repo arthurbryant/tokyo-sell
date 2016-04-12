@@ -1,29 +1,48 @@
-<%= form_for(@item_detail) do |f| %>
-  <% if @item_detail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item_detail.errors.count, "error") %> prohibited this item_detail from being saved:</h2>
+<%= form_for @item_detail, :html => { :class => "form-horizontal item_detail" } do |f| %>
 
-      <ul>
-      <% @item_detail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @item_detail.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@item_detail.errors.count, "error") %> prohibited this item_detail from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @item_detail.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :item_id %><br>
-    <%= f.text_field :item_id %>
+  <div class="form-group">
+    <%= f.label :item_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :item_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:item_id) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
   </div>
-  <div class="field">
-    <%= f.label :other_imgs %><br>
-    <%= f.text_area :other_imgs %>
+  <div class="form-group">
+    <%= f.label :other_img_urls, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :other_img_urls, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:other_img_urls) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                item_details_path, :class => 'btn btn-default' %>
+    </div>
   </div>
+
 <% end %>
