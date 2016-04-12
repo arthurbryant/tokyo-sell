@@ -11,6 +11,20 @@
   <dt><strong><%= model_class.human_attribute_name(:other_img_urls) %>:</strong></dt>
   <dd><%= @item_detail.other_img_urls %></dd>
 </dl>
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<br />
+
+<p>
+  <strong>Item:</strong>
+  <%= @item_detail.item %>
+</p>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               item_details_path, :class => 'btn btn-default'  %>

@@ -3,6 +3,20 @@
     <div class="page-header">
       <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
     </div>
+<p id="notice"><%= notice %></p>
+
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<br />
+
+<h1>Listing Items</h1>
+
     <% @items.each do |item| %>
       <div class="media">
         <div class="media-left">
